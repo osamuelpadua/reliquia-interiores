@@ -40,11 +40,13 @@ O conteúdo só é ocultado para animar quando o visitante não pediu movimento 
 
 ## Contato pendente
 
-Conforme combinado, `whatsappNumber` está vazio em `site.config.js`. Enquanto não houver número real, os CTAs navegam para o contato da página. Ao preencher o número com país e DDD, somente dígitos, os CTAs passam automaticamente a abrir o WhatsApp, e o telefone do rodapé é atualizado.
+Conforme combinado, `whatsappNumber` está vazio em `site.config.js`. Enquanto não houver número real, os CTAs navegam para o contato da página. Ao preencher o número com país e DDD, somente dígitos, os CTAs passam automaticamente a abrir o WhatsApp.
 
-Facebook, X e mapa também aceitam URLs em `site.config.js`; seus destinos não constam no PDF. Os ícones sem destino configurado permanecem decorativos. O Instagram usa o perfil que aparece na referência.
+O telefone fixo e o endereço do rodapé são os dados reais da loja e ficam no `index.html`: o telefone é um link `tel:` e não muda quando o WhatsApp é configurado. O endereço abre no Google Maps pelo `mapsUrl` de `site.config.js`.
 
-Os três depoimentos em latim, nomes, localidades, telefone, endereço, CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF. São conteúdos da referência, não depoimentos ou dados comerciais verificados. Substitua-os pelos dados reais quando disponíveis.
+Facebook e X também aceitam URLs em `site.config.js`; seus destinos não constam no PDF. Os ícones sem destino configurado permanecem decorativos. O Instagram usa o perfil que aparece na referência.
+
+Os três depoimentos em latim, nomes, localidades, CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF. São conteúdos da referência, não depoimentos ou dados comerciais verificados. Substitua-os pelos dados reais quando disponíveis.
 
 ## Verificação
 

@@ -143,15 +143,6 @@ if (/^\d{10,15}$/.test(whatsappNumber)) {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
   });
-  const phone = document.querySelector('[data-phone]');
-  const phoneLink = document.createElement('a');
-  phoneLink.className = phone.className;
-  phoneLink.href = `tel:+${whatsappNumber}`;
-  phoneLink.innerHTML = phone.innerHTML;
-  phoneLink.lastElementChild.textContent = whatsappNumber.startsWith('55')
-    ? `(${whatsappNumber.slice(2, 4)}) ${whatsappNumber.slice(4, -4)}-${whatsappNumber.slice(-4)}`
-    : `+${whatsappNumber}`;
-  phone.replaceWith(phoneLink);
 }
 
 function configureLink(element, url) {
