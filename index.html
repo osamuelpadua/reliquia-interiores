@@ -10,6 +10,15 @@
     <link rel="preload" href="assets/fonts/fahkwang-400.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="assets/fonts/public-sans-400.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="assets/img/bg-hero.jpg" as="image" fetchpriority="high">
+    <script>
+      // Entrance animations hide content only while motion is allowed and script.js is running.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion');
+        addEventListener('load', () => {
+          if (!document.documentElement.classList.contains('motion-ready')) document.documentElement.classList.remove('motion');
+        });
+      }
+    </script>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="script.js"></script>
   </head>
@@ -54,7 +63,7 @@
       </section>
 
       <div class="benefits" aria-label="Benefícios da Relíquia Interiores">
-        <ul class="container benefits-list">
+        <ul class="container benefits-list" data-reveal="stagger">
           <li><img src="assets/svg/icon-beneficios0.svg" alt="" width="42" height="42"><p>Móveis e decoração<br>de <strong>alto padrão</strong></p></li>
           <li><img src="assets/svg/icon-beneficios1.svg" alt="" width="46" height="46"><p><strong>Atendimento</strong><br>especializado</p></li>
           <li><img src="assets/svg/icon-beneficios2.svg" alt="" width="40" height="40"><p><strong>Curadoria</strong> para<br>cada ambiente</p></li>
@@ -63,17 +72,17 @@
       </div>
 
       <section class="positioning" aria-labelledby="positioning-title">
-        <img class="positioning-decoration" src="assets/svg/bg-posicionamento.svg" alt="" width="883" height="1087" loading="lazy">
+        <img class="positioning-decoration" src="assets/svg/bg-posicionamento.svg" alt="" width="883" height="1087" loading="lazy" data-reveal="drift">
         <div class="container positioning-inner">
-          <figure class="editorial-image positioning-image">
-            <img src="assets/img/img-posicionamento.jpg" alt="Sala com sofá claro, poltrona vinho e mesas de madeira em uma composição acolhedora" width="761" height="951" loading="lazy">
+          <figure class="editorial-image positioning-image" data-reveal="image">
+            <div class="editorial-media"><img src="assets/img/img-posicionamento.jpg" alt="Sala com sofá claro, poltrona vinho e mesas de madeira em uma composição acolhedora" width="761" height="951" loading="lazy"></div>
             <figcaption><strong>Escolhas pensadas</strong> para<br>durar mais do que a<br>primeira impressão.</figcaption>
           </figure>
           <div class="section-copy positioning-copy">
-            <p class="eyebrow">Posicionamento</p>
-            <h2 id="positioning-title">Mais do que escolher móveis, é preciso fazer com que cada escolha <span class="accent">encontre o seu lugar</span>.</h2>
-            <p>Um ambiente bem resolvido não acontece por acaso. Ele nasce quando beleza, conforto e personalidade encontram equilíbrio. Por isso, na <strong class="accent">Relíquia</strong>, não olhamos apenas para uma peça. Olhamos para o ambiente, para as combinações e, principalmente, para a maneira como você quer viver a sua casa. Porque uma peça pode ser bonita sozinha.</p>
-            <blockquote>Mas é quando ela faz sentido junto das outras<br class="desktop-break"> que o ambiente começa a ganhar identidade.</blockquote>
+            <p class="eyebrow" data-reveal="eyebrow">Posicionamento</p>
+            <h2 id="positioning-title" data-reveal="title">Mais do que escolher móveis, é preciso fazer com que cada escolha <span class="accent">encontre o seu lugar</span>.</h2>
+            <p data-reveal>Um ambiente bem resolvido não acontece por acaso. Ele nasce quando beleza, conforto e personalidade encontram equilíbrio. Por isso, na <strong class="accent">Relíquia</strong>, não olhamos apenas para uma peça. Olhamos para o ambiente, para as combinações e, principalmente, para a maneira como você quer viver a sua casa. Porque uma peça pode ser bonita sozinha.</p>
+            <blockquote data-reveal="quote">Mas é quando ela faz sentido junto das outras<br class="desktop-break"> que o ambiente começa a ganhar identidade.</blockquote>
           </div>
         </div>
       </section>
@@ -81,13 +90,13 @@
       <section class="choices" aria-labelledby="choices-title">
         <div class="container editorial-grid">
           <div class="section-copy choices-copy">
-            <p class="eyebrow">Escolhas que transformam</p>
-            <h2 id="choices-title">Uma casa bonita chama atenção. Uma casa bem resolvida <span class="accent">faz você querer ficar</span></h2>
-            <p><strong class="accent">Beleza importa.</strong> Mas conforto e personalidade são o que fazem uma casa realmente sua. Por isso, antes de ajudar você a escolher uma peça, buscamos entender o seu espaço, suas necessidades e suas preferências. Porque, no fim, não se trata apenas de decorar. Trata-se de criar um lugar bonito, confortável e com a sua cara.</p>
-            <blockquote>Quando cada escolha encontra o seu lugar, o resultado deixa de parecer simplesmente decorado. <strong>Ele passa a parecer seu.</strong></blockquote>
+            <p class="eyebrow" data-reveal="eyebrow">Escolhas que transformam</p>
+            <h2 id="choices-title" data-reveal="title">Uma casa bonita chama atenção. Uma casa bem resolvida <span class="accent">faz você querer ficar</span></h2>
+            <p data-reveal><strong class="accent">Beleza importa.</strong> Mas conforto e personalidade são o que fazem uma casa realmente sua. Por isso, antes de ajudar você a escolher uma peça, buscamos entender o seu espaço, suas necessidades e suas preferências. Porque, no fim, não se trata apenas de decorar. Trata-se de criar um lugar bonito, confortável e com a sua cara.</p>
+            <blockquote data-reveal="quote">Quando cada escolha encontra o seu lugar, o resultado deixa de parecer simplesmente decorado. <strong>Ele passa a parecer seu.</strong></blockquote>
           </div>
-          <figure class="editorial-image choices-image">
-            <img src="assets/img/img-escolhas-que-transformam.jpg" alt="Cachorro descansando no sofá, ao lado de uma mesa de madeira com uma xícara" width="786" height="983" loading="lazy">
+          <figure class="editorial-image choices-image" data-reveal="image">
+            <div class="editorial-media"><img src="assets/img/img-escolhas-que-transformam.jpg" alt="Cachorro descansando no sofá, ao lado de uma mesa de madeira com uma xícara" width="786" height="983" loading="lazy"></div>
             <figcaption><strong>Escolhas</strong> que fazem<br>sentido para a sua casa.</figcaption>
           </figure>
         </div>
@@ -95,7 +104,7 @@
 
       <section class="differences" aria-labelledby="differences-title">
         <div class="container">
-          <div class="differences-banner">
+          <div class="differences-banner" data-reveal="banner">
             <div>
               <p class="eyebrow">Diferenciais</p>
               <h2 id="differences-title">Experiência para<br>escolher melhor.<br>Possibilidades para<br>criar <strong>do seu jeito</strong></h2>
@@ -106,22 +115,22 @@
             </div>
           </div>
           <div class="differences-list">
-            <article class="difference">
+            <article class="difference" data-reveal="row">
               <img src="assets/svg/-icon-diferenciais_0.svg" alt="" width="57" height="59" loading="lazy">
               <h3>Móveis e decoração <br>de alto padrão</h3>
               <p>Peças escolhidas para quem valoriza beleza, qualidade e durabilidade. Qualidade, acabamento, materiais e proporções fazem parte de uma escolha que precisa continuar fazendo sentido muito depois da primeira impressão.</p>
             </article>
-            <article class="difference">
+            <article class="difference" data-reveal="row">
               <img src="assets/svg/-icon-diferenciais_1.svg" alt="" width="60" height="60" loading="lazy">
               <h3>Atendimento <br>especializado para <br>escolha segura</h3>
               <p>Você não precisa descobrir sozinho se aquela peça realmente funciona no seu ambiente. Nossa equipe ajuda você a avaliar medidas, combinações e possibilidades para que suas escolhas façam sentido juntas.</p>
             </article>
-            <article class="difference">
+            <article class="difference" data-reveal="row">
               <img src="assets/svg/-icon-diferenciais_2.svg" alt="" width="64" height="60" loading="lazy">
               <h3>Variedade e <br>pronta entrega</h3>
               <p>Mais possibilidades para encontrar o que você procura — e mais agilidade para tirar suas escolhas do papel. Com uma ampla variedade de móveis e peças de decoração à pronta entrega, você não precisa limitar seu projeto a uma única opção.</p>
             </article>
-            <article class="difference">
+            <article class="difference" data-reveal="row">
               <img src="assets/svg/-icon-diferenciais_3.svg" alt="" width="60" height="60" loading="lazy">
               <h3>A escolha pode <br>acontecer dentro <br>da sua casa</h3>
               <p>Algumas escolhas só ficam realmente claras quando você vê a peça no ambiente. Por isso, quando necessário, levamos peças para demonstração no seu espaço e ajudamos você a visualizar proporções, combinações e possibilidades antes de decidir.</p>
@@ -131,10 +140,10 @@
       </section>
 
       <section class="guidance" aria-labelledby="guidance-title">
-        <img class="guidance-decoration" src="assets/svg/iso.svg" alt="" width="93" height="93" loading="lazy">
+        <img class="guidance-decoration" src="assets/svg/iso.svg" alt="" width="93" height="93" loading="lazy" data-reveal="symbol">
         <div class="guidance-inner">
-          <h2 id="guidance-title">Não precisa<br>escolher<br>tudo sozinho.</h2>
-          <div>
+          <h2 id="guidance-title" data-reveal="title">Não precisa<br>escolher<br>tudo sozinho.</h2>
+          <div data-reveal>
             <p><strong>Conte para nós o que você está buscando,</strong> fale sobre o seu ambiente e deixe nossa equipe ajudar você a encontrar possibilidades que façam sentido para a sua casa.</p>
             <a class="button button-light" href="#contato" data-whatsapp><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg><span>Falar com um especialista</span></a>
           </div>
@@ -142,12 +151,12 @@
       </section>
 
       <section class="showroom" id="showroom" aria-labelledby="showroom-title">
-        <div class="container section-heading">
+        <div class="container section-heading" data-reveal="heading">
           <p class="eyebrow">Showroom</p>
           <h2 id="showroom-title">Ambientes para ver, sentir e escolher</h2>
           <p>No <strong class="accent">showroom da Relíquia</strong>, você encontra diferentes móveis, materiais e composições<br class="desktop-break"> para conhecer de perto e descobrir novas possibilidades para a sua casa.</p>
         </div>
-        <div class="showroom-gallery" tabindex="0" role="region" aria-label="Galeria de ambientes do showroom. Use as setas do teclado ou deslize para ver as imagens.">
+        <div class="showroom-gallery" data-reveal="gallery" tabindex="0" role="region" aria-label="Galeria de ambientes do showroom. Use as setas do teclado ou deslize para ver as imagens.">
           <button class="showroom-item" type="button" data-gallery-index="0" aria-label="Ampliar ambiente de estar"><img src="assets/img/img-showroom0.jpg" alt="Sala de estar com sofá claro, almofadas vinho e mesa orgânica de madeira" width="690" height="690" loading="lazy"></button>
           <button class="showroom-item" type="button" data-gallery-index="1" aria-label="Ampliar sala de jantar"><img src="assets/img/img-showroom1.jpg" alt="Mesa de jantar de madeira e cadeiras estofadas junto à parede de pedra" width="690" height="690" loading="lazy"></button>
           <button class="showroom-item" type="button" data-gallery-index="2" aria-label="Ampliar composição de sofás"><img src="assets/img/img-showroom2.jpg" alt="Sofás de textura clara e mesas de madeira em composição contemporânea" width="690" height="690" loading="lazy"></button>
@@ -158,11 +167,11 @@
 
       <section class="testimonials" id="depoimentos" aria-labelledby="testimonials-title">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="heading">
             <p class="eyebrow">Depoimentos</p>
             <h2 id="testimonials-title">O que dizem nossos clientes</h2>
           </div>
-          <div class="testimonial-carousel" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="testimonial-carousel" data-reveal="carousel" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
             <button class="carousel-arrow previous" type="button" aria-label="Depoimento anterior"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
             <div class="testimonial-track">
               <article class="testimonial-card">
@@ -183,7 +192,7 @@
             </div>
             <button class="carousel-arrow next" type="button" aria-label="Próximo depoimento"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
           </div>
-          <div class="carousel-dots" role="group" aria-label="Posições dos depoimentos">
+          <div class="carousel-dots" data-reveal="fade" role="group" aria-label="Posições dos depoimentos">
             <button type="button" aria-label="Posição 1 dos depoimentos" data-position="0"></button>
             <button class="is-active" type="button" aria-label="Posição 2 dos depoimentos" aria-pressed="true" data-position="1"></button>
             <button type="button" aria-label="Posição 3 dos depoimentos" data-position="2"></button>
@@ -197,16 +206,16 @@
       <section class="history" id="nossa-historia" aria-labelledby="history-title">
         <div class="container editorial-grid">
           <div class="section-copy history-copy">
-            <p class="eyebrow">Nossa história</p>
-            <h2 id="history-title">Mais de quatro décadas aprendendo o que faz uma casa especial.</h2>
-            <div class="history-text">
+            <p class="eyebrow" data-reveal="eyebrow">Nossa história</p>
+            <h2 id="history-title" data-reveal="title">Mais de quatro décadas aprendendo o que faz uma casa especial.</h2>
+            <div class="history-text" data-reveal>
               <p>A <strong class="accent">Relíquia Interiores</strong> nasceu de um negócio familiar e, desde 1984, constrói sua história fazendo parte das casas de diferentes gerações de clientes. Nesse tempo, muita coisa mudou. Os estilos mudaram. As tendências passaram. A maneira de viver a casa também evoluiu. Mas uma coisa permaneceu: <strong class="accent">o cuidado com cada escolha.</strong> Foi assim que construímos uma relação de confiança baseada em qualidade, atendimento e experiência.</p>
               <p>Hoje, reunimos um amplo showroom, variedade de móveis e decoração, uma equipe preparada para orientar cada escolha e uma estrutura pensada para entregar uma experiência à altura daquilo que você espera para a sua casa.</p>
             </div>
-            <blockquote>Mais de quatro décadas depois, seguimos fazendo o que sempre fizemos melhor: <strong>ajudar pessoas a transformar espaços em lugares que tenham a sua cara.</strong></blockquote>
+            <blockquote data-reveal="quote">Mais de quatro décadas depois, seguimos fazendo o que sempre fizemos melhor: <strong>ajudar pessoas a transformar espaços em lugares que tenham a sua cara.</strong></blockquote>
           </div>
-          <figure class="editorial-image history-image">
-            <img src="assets/img/img-nossa-historia.jpg" alt="Relíquia Interiores: sofá de couro, madeira e elementos naturais em uma sala acolhedora" width="786" height="1004" loading="lazy">
+          <figure class="editorial-image history-image" data-reveal="image">
+            <div class="editorial-media"><img src="assets/img/img-nossa-historia.jpg" alt="Relíquia Interiores: sofá de couro, madeira e elementos naturais em uma sala acolhedora" width="786" height="1004" loading="lazy"></div>
             <figcaption>Mais de <strong>quatro décadas<br>de experiência</strong> que<br>fazem a diferença.</figcaption>
           </figure>
         </div>
@@ -214,7 +223,7 @@
 
       <div class="closing">
         <section class="contact" id="contato" aria-labelledby="contact-title">
-          <div class="contact-box">
+          <div class="contact-box" data-reveal="contact">
             <div class="contact-symbol"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg></div>
             <h2 id="contact-title">Vamos encontrar o que faz<br class="desktop-break"> sentido para a sua casa?</h2>
             <p><strong>Conte para nossa equipe</strong> o que você está buscando e descubra<br class="desktop-break"> móveis, peças e possibilidades pensadas para o seu espaço.</p>
@@ -222,7 +231,7 @@
           </div>
         </section>
         <footer class="site-footer">
-          <div class="container footer-main">
+          <div class="container footer-main" data-reveal="stagger">
             <div class="footer-brand">
               <a href="#inicio" aria-label="Relíquia Interiores — início"><img src="assets/svg/logo.svg" alt="Relíquia Interiores" width="195" height="62" loading="lazy"></a>
               <p>Há mais de quatro décadas, ajudando<br> a transformar boas escolhas em<br> casas com personalidade.</p>
@@ -239,7 +248,7 @@
             </div>
           </div>
           <div class="footer-bottom">
-            <div class="container footer-bottom-inner">
+            <div class="container footer-bottom-inner" data-reveal="fade">
               <p>© 2026 - Reliquia Interiores. CNPJ: 00.000.000/0000-00. Todos os direitos reservados.</p>
               <div class="social-links" aria-label="Redes sociais">
                 <span data-social="facebook" aria-label="Facebook"><svg aria-hidden="true"><use href="#icon-facebook"/></svg></span>

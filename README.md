@@ -24,7 +24,13 @@ O build copia os arquivos de publicação para `dist/`. Essa pasta pode ser serv
 
 - `index.html`: conteúdo completo, seções semânticas e ícones utilitários em SVG.
 - `style.css`: tipografia local, medidas do desktop e adaptações para tablet/mobile.
-- `script.js`: menu, navegação da galeria, visualização ampliada, carrossel de depoimentos e contatos.
+- `script.js`: menu, cabeçalho flutuante, animações de entrada, navegação da galeria, visualização ampliada, carrossel de depoimentos e contatos.
+
+## Animações
+
+Os blocos marcados com `data-reveal` no HTML entram uma única vez ao aparecer na tela. O valor do atributo escolhe o efeito, definido na seção "Entrance motion" do `style.css` (`title`, `quote`, `image`, `stagger`, `gallery` etc.). Ao terminar, o atributo é removido e a página volta exatamente ao layout estático.
+
+O conteúdo só é ocultado para animar quando o visitante não pediu movimento reduzido e o `script.js` carregou. Se o JavaScript falhar, por exemplo por um erro de digitação em `site.config.js`, tudo aparece normalmente.
 - `site.config.js`: destino do WhatsApp e links externos.
 - `assets/img` e `assets/svg`: todos os 24 arquivos originais fornecidos, preservados.
 - `assets/fonts`: Fahkwang e Public Sans, pesos 300–700, com suas licenças OFL.
