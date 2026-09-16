@@ -45,9 +45,9 @@ As fotos são servidas com `<picture>` (ou `image-set()` nos fundos em CSS): AVI
 
 A foto do hero não anima a opacidade: ela só faz o zoom, e um véu escuro por cima some. O Chrome só considera pintado um elemento que surge de opacidade 0 quando a animação termina, o que atrasaria a métrica de LCP.
 
-## Contato pendente
+## Contato
 
-Conforme combinado, `whatsappNumber` está vazio em `site.config.js`. Enquanto não houver número real, os CTAs navegam para o contato da página. Ao preencher o número com país e DDD, somente dígitos, os CTAs passam automaticamente a abrir o WhatsApp.
+O `whatsappNumber` em `site.config.js` usa o telefone fixo da loja, (33) 3271-5363, no formato país + DDD + número, somente dígitos. Com ele preenchido, os CTAs abrem uma conversa no WhatsApp com a mensagem de `whatsappMessage`. Se o campo ficar vazio, os CTAs voltam a levar ao contato da própria página.
 
 O telefone fixo e o endereço do rodapé são os dados reais da loja e ficam no `index.html`: o telefone é um link `tel:` e não muda quando o WhatsApp é configurado. O endereço abre no Google Maps pelo `mapsUrl` de `site.config.js`.
 
