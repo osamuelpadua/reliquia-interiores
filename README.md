@@ -29,7 +29,7 @@ O build copia os arquivos de publicação para `dist/`. Essa pasta pode ser serv
 - `assets/img` e `assets/svg`: todos os 24 arquivos originais fornecidos, preservados.
 - `assets/img/optimized`: versões AVIF e WebP das fotos, usadas pelo site.
 - `assets/fonts`: Fahkwang e Public Sans em WOFF2 (subconjuntos latinos do Google Fonts), pesos 300–700, com suas licenças OFL.
-- `assets/reference`: fotos dos depoimentos e textura extraídas do próprio PDF.
+- `assets/reference`: textura extraída do próprio PDF.
 - `scripts/`: servidor local e build, usando somente módulos nativos do Node.js.
 - `docs/design-reference.md`: correspondência entre o PDF e os assets.
 
@@ -53,7 +53,9 @@ O telefone fixo e o endereço do rodapé são os dados reais da loja e ficam no 
 
 O Instagram usa o perfil que aparece na referência. A barra final do rodapé traz, no lugar dos ícones de redes sociais, o crédito "Design e Desenvolvimento" com a logo de Samuel Pádua (`assets/svg/logo-samuel.svg`), em opacidade reduzida.
 
-Os três depoimentos em latim, nomes, localidades, CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF. São conteúdos da referência, não depoimentos ou dados comerciais verificados. Substitua-os pelos dados reais quando disponíveis.
+Os depoimentos são avaliações reais do Google Meu Negócio da loja, transcritas sem alterações. Foram selecionadas 12 avaliações positivas; ficaram de fora reclamações, comentários sobre preço, a avaliação de uma funcionária e uma pergunta. O botão "Ver todas as avaliações no Google" leva ao perfil completo. Para trocar ou incluir depoimentos, edite os `article.testimonial-card` no `index.html`: o carrossel calcula as páginas e os pontos sozinho.
+
+O CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF e não são dados verificados. Substitua-os pelos dados reais quando disponíveis.
 
 ## Verificação
 

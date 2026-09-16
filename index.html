@@ -29,6 +29,7 @@
         <symbol id="icon-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle fill="currentColor" cx="17.6" cy="6.6" r="1.2"/></symbol>
         <symbol id="icon-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3a7 7 0 0 1 7 7M14 7a3 3 0 0 1 3 3M5 3H3a18 18 0 0 0 18 18v-3l-5-3-2 2a14 14 0 0 1-7-7l2-2-3-5Z"/></g></symbol>
         <symbol id="icon-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0Z"/><circle cx="12" cy="9" r="2.7"/></g></symbol>
+        <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
         <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 4 8 8-8 8" fill="none" stroke="currentColor" stroke-width="3.5"/></symbol>
       </defs>
     </svg>
@@ -187,35 +188,75 @@
             <p class="eyebrow">Depoimentos</p>
             <h2 id="testimonials-title">O que dizem nossos clientes</h2>
           </div>
-          <div class="testimonial-carousel" data-reveal="carousel" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
-            <button class="carousel-arrow previous" type="button" aria-label="Depoimento anterior"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
-            <div class="testimonial-track">
+          <div class="testimonial-carousel" data-reveal="carousel" aria-roledescription="carrossel" aria-label="Avaliações de clientes no Google">
+            <button class="carousel-arrow previous" type="button" aria-label="Depoimentos anteriores" aria-controls="testimonial-track"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+            <div class="testimonial-track" id="testimonial-track">
               <article class="testimonial-card">
-                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-lucas-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-lucas-120.webp"><img class="customer-photo" src="assets/reference/cliente-lucas.png" alt="" width="50" height="50" loading="lazy"></picture>
-                <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget.</blockquote>
-                <p class="customer-name">Lucas Fernandes</p><p class="customer-city">Caxias do Sul - RS</p>
+                <span class="customer-initials" aria-hidden="true">NN</span>
+                <blockquote>Móveis e decorações de primeira qualidade, o atendimento nota mil das vendedoras e do proprietária Vanessa e Dalmir são demais!!!</blockquote>
+                <p class="customer-name">Norberto Nascimento</p><p class="customer-source">Avaliação no Google</p>
               </article>
               <article class="testimonial-card">
-                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-maria-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-maria-120.webp"><img class="customer-photo" src="assets/reference/cliente-maria.png" alt="" width="50" height="50" loading="lazy"></picture>
-                <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget tristique et morbi. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget tristique et morbi.</blockquote>
-                <p class="customer-name">Maria Silva</p><p class="customer-city">São Paulo - SP</p>
+                <span class="customer-initials" aria-hidden="true">WR</span>
+                <blockquote>Atendimento excelente! Loja ampla, bem estruturada, de muito bom gosto!</blockquote>
+                <p class="customer-name">Wilma Ramos Rocha</p><p class="customer-source">Avaliação no Google</p>
               </article>
               <article class="testimonial-card">
-                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-claudia-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-claudia-120.webp"><img class="customer-photo" src="assets/reference/cliente-claudia.png" alt="" width="50" height="50" loading="lazy"></picture>
-                <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Tristique.</blockquote>
-                <p class="customer-name">Cláudia Pereira</p><p class="customer-city">Itajaí - SC</p>
+                <span class="customer-initials" aria-hidden="true">VB</span>
+                <blockquote>Fantástica loja, muita variedades e opções de móveis, atendimento especial. Recomendo a todos!!</blockquote>
+                <p class="customer-name">Vinicius Bartole</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">NS</span>
+                <blockquote>Produtos com excelente qualidade!! Atendimento nota mil!!! Muito satisfeito.</blockquote>
+                <p class="customer-name">NILTON S</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">RC</span>
+                <blockquote>Loja maravilhosa, fui muito bem atendido na loja, a vendedora me ofereceu muitas opções</blockquote>
+                <p class="customer-name">Ricardo Cordeiro</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">MS</span>
+                <blockquote>Atendimento perfeito, móveis excelentes super recomendo.</blockquote>
+                <p class="customer-name">Maykon Silva</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">E</span>
+                <blockquote>Móveis lindíssimos, as vendedoras sao super atenciosas.</blockquote>
+                <p class="customer-name">edenilza1</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">GV</span>
+                <blockquote>Loja linda, para pessoas de gosto refinado e exigente</blockquote>
+                <p class="customer-name">Gilson Verissimo</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">AB</span>
+                <blockquote>A melhor em opções de móveis e decoração!!</blockquote>
+                <p class="customer-name">Andressa Barcelos</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">JV</span>
+                <blockquote>Produtos de qualidade e ótimo atendimento.</blockquote>
+                <p class="customer-name">Jorgeluiz Vieira</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">MS</span>
+                <blockquote>Receptividade e ambiente super agradável.</blockquote>
+                <p class="customer-name">Moryevaldo Jose Silva Silva</p><p class="customer-source">Avaliação no Google</p>
+              </article>
+              <article class="testimonial-card">
+                <span class="customer-initials" aria-hidden="true">DS</span>
+                <blockquote>Loja para todos os gostos e bolsos.</blockquote>
+                <p class="customer-name">Daniel S Soccol</p><p class="customer-source">Avaliação no Google</p>
               </article>
             </div>
-            <button class="carousel-arrow next" type="button" aria-label="Próximo depoimento"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+            <button class="carousel-arrow next" type="button" aria-label="Próximos depoimentos" aria-controls="testimonial-track"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
           </div>
-          <div class="carousel-dots" data-reveal="fade" role="group" aria-label="Posições dos depoimentos">
-            <button type="button" aria-label="Posição 1 dos depoimentos" data-position="0"></button>
-            <button class="is-active" type="button" aria-label="Posição 2 dos depoimentos" aria-pressed="true" data-position="1"></button>
-            <button type="button" aria-label="Posição 3 dos depoimentos" data-position="2"></button>
-            <button type="button" aria-label="Posição 4 dos depoimentos" data-position="3"></button>
-            <button type="button" aria-label="Posição 5 dos depoimentos" data-position="4"></button>
-          </div>
+          <div class="carousel-dots" data-reveal="fade" role="group" aria-label="Páginas dos depoimentos"></div>
           <p class="sr-only" aria-live="polite" id="testimonial-status"></p>
+          <p class="testimonials-more" data-reveal="fade"><a class="button button-outline" href="https://share.google/PB9t7vWlaPizohb4v" target="_blank" rel="noopener noreferrer"><span>Ver todas as avaliações no Google</span><svg aria-hidden="true"><use href="#icon-external"/></svg></a></p>
         </div>
       </section>
 

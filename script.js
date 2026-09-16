@@ -291,58 +291,72 @@ dialog.addEventListener('close', () => {
   galleryTrigger?.focus({ preventScroll: true });
 });
 
-// Five positions reproduce the reference indicators; only the three supplied
-// testimonials are cycled, without inventing additional clients or reviews.
+// Testimonials scroll natively (swipe, trackpad). Arrows and dots move one page at a time, three
+// cards from 700px up and one on phones, looping at either end. Dots are built for the current layout.
 const track = document.querySelector('.testimonial-track');
 const cards = [...track.children];
-const dots = [...document.querySelectorAll('.carousel-dots button')];
-const arrangements = [[2, 0, 1], [0, 1, 2], [1, 2, 0], [2, 1, 0], [0, 2, 1]];
-let currentPosition = 1;
-let changingPosition = false;
-function updateIndicators() {
+const dotsGroup = document.querySelector('.carousel-dots');
+const testimonialStatus = document.querySelector('#testimonial-status');
+let dots = [];
+let currentPage = 0;
+let targetPage = null;
+let pageFrame = null;
+
+const cardsPerPage = () => (mobileLayout.matches ? 1 : 3);
+const pageCount = () => Math.ceil(cards.length / cardsPerPage());
+const pageWidth = () => track.clientWidth + parseFloat(getComputedStyle(track).columnGap);
+
+function setActiveDot(page) {
+  currentPage = page;
   dots.forEach((dot, index) => {
-    dot.classList.toggle('is-active', index === currentPosition);
-    dot.setAttribute('aria-pressed', String(index === currentPosition));
+    dot.classList.toggle('is-active', index === page);
+    dot.setAttribute('aria-pressed', String(index === page));
   });
 }
-// Cards glide from their previous place to the new one; a card that jumps across the row
-// fades in from the side it moves towards instead of crossing over the others.
-function animateTestimonials(previousBounds) {
-  if (reducedMotion.matches) return;
-  if (mobileLayout.matches) {
-    track.firstElementChild.animate([{ opacity: 0, transform: 'scale(.97)' }, { opacity: 1, transform: 'none' }], { duration: 600, easing: easeOut });
-    return;
+function renderDots() {
+  const count = pageCount();
+  dots = Array.from({ length: count }, (_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Página ${index + 1} de ${count} dos depoimentos`);
+    dot.addEventListener('click', () => goToPage(index));
+    return dot;
+  });
+  dotsGroup.replaceChildren(...dots);
+  setActiveDot(Math.min(currentPage, count - 1));
+}
+function goToPage(page) {
+  const count = pageCount();
+  targetPage = (page + count) % count;
+  track.scrollTo({ left: targetPage * pageWidth(), behavior: scrollBehavior() });
+  setActiveDot(targetPage);
+  const first = targetPage * cardsPerPage();
+  const last = Math.min(first + cardsPerPage(), cards.length);
+  testimonialStatus.textContent = last - first === 1
+    ? `Depoimento ${first + 1} de ${cards.length}: ${cards[first].querySelector('.customer-name').textContent}`
+    : `Depoimentos ${first + 1} a ${last} de ${cards.length}`;
+}
+function syncPageWithScroll() {
+  pageFrame = null;
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  const page = track.scrollLeft >= maxScroll - 2 ? pageCount() - 1 : Math.round(track.scrollLeft / pageWidth());
+  // While an arrow or dot scroll is animating, its dot stays active until the strip arrives.
+  if (targetPage !== null) {
+    if (page !== targetPage) return;
+    targetPage = null;
   }
-  const slotWidth = track.children[1].getBoundingClientRect().left - track.children[0].getBoundingClientRect().left;
-  cards.forEach(card => {
-    const offset = previousBounds.get(card).left - card.getBoundingClientRect().left;
-    if (Math.abs(offset) < 1) return;
-    const keyframes = Math.abs(offset) > slotWidth * 1.5
-      ? [{ opacity: 0, transform: `translateX(${Math.sign(-offset) * 48}px)` }, { opacity: 1, transform: 'none' }]
-      : [{ transform: `translateX(${offset}px)` }, { transform: 'none' }];
-    card.animate(keyframes, { duration: 800, easing: easeOut });
-  });
+  if (page !== currentPage) setActiveDot(page);
 }
-function setTestimonialPosition(position) {
-  const previousBounds = new Map(cards.map(card => [card, card.getBoundingClientRect()]));
-  currentPosition = (position + dots.length) % dots.length;
-  changingPosition = true;
-  arrangements[currentPosition].forEach(index => track.append(cards[index]));
+document.querySelector('.carousel-arrow.previous').addEventListener('click', () => goToPage((targetPage ?? currentPage) - 1));
+document.querySelector('.carousel-arrow.next').addEventListener('click', () => goToPage((targetPage ?? currentPage) + 1));
+track.addEventListener('scroll', () => {
+  if (pageFrame === null) pageFrame = requestAnimationFrame(syncPageWithScroll);
+}, { passive: true });
+['pointerdown', 'wheel', 'touchstart'].forEach(type => track.addEventListener(type, () => { targetPage = null; }, { passive: true }));
+mobileLayout.addEventListener('change', () => {
+  targetPage = null;
+  currentPage = 0;
   track.scrollLeft = 0;
-  updateIndicators();
-  document.querySelector('#testimonial-status').textContent = mobileLayout.matches
-    ? cards[arrangements[currentPosition][0]].querySelector('.customer-name').textContent
-    : `Posição ${currentPosition + 1} de ${dots.length}`;
-  requestAnimationFrame(() => { changingPosition = false; });
-  animateTestimonials(previousBounds);
-}
-document.querySelector('.carousel-arrow.previous').addEventListener('click', () => setTestimonialPosition(currentPosition - 1));
-document.querySelector('.carousel-arrow.next').addEventListener('click', () => setTestimonialPosition(currentPosition + 1));
-dots.forEach((dot, index) => dot.addEventListener('click', () => setTestimonialPosition(index)));
-track.addEventListener('scrollend', () => {
-  if (!mobileLayout.matches || changingPosition) return;
-  const index = Math.round(track.scrollLeft / (track.clientWidth + 16));
-  const visibleCard = track.children[index];
-  if (visibleCard) document.querySelector('#testimonial-status').textContent = visibleCard.querySelector('.customer-name').textContent;
+  renderDots();
 });
-updateIndicators();
+renderDots();

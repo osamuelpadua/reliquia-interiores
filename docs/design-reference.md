@@ -16,13 +16,13 @@ Todos os 11 arquivos de imagem e 13 SVGs foram inventariados e visualizados ante
 | Diferenciais | `img/img-diferenciais.jpg`, `svg/stamp-txt.svg`, `svg/iso.svg`, quatro `svg/-icon-diferenciais_*.svg` | Banner 1120 × 424 px, texto do selo girando conforme a rolagem, símbolo central fixo, quatro linhas e divisores. |
 | CTA vermelho | `svg/iso.svg` | Símbolo original ampliado, recortado e translúcido ao fundo. |
 | Showroom | `img/img-showroom0.jpg` a `img-showroom4.jpg` | Cinco imagens de 460 × 460 px no desktop, com 20 px entre elas; rolagem horizontal e ampliação. |
-| Depoimentos | Imagens incorporadas no PDF | Três retratos originais extraídos, mesmos textos e cinco indicadores. |
+| Depoimentos | — | Avaliações reais do Google com iniciais no lugar dos retratos da referência, carrossel paginado e link para o perfil no Google. |
 | Nossa história | `img/img-nossa-historia.jpg` | A foto já inclui o logo branco, mantido sem sobreposição duplicada. |
 | CTA final e footer | `svg/logo.svg`, textura incorporada no PDF | Fundo escuro texturizado, painel contornado e ícone do WhatsApp. |
 
 `img/img-posicionamento.png` é uma versão alternativa, de menor resolução, da mesma foto em JPG; foi preservada sem duplicar a imagem na interface. `svg/stamp-full.svg` foi preservado como versão estática do selo; a composição usa `stamp-txt.svg` e `iso.svg` separados para girar apenas o texto com a rolagem. O movimento respeita a preferência por animação reduzida. O arquivo `bg-posicionamento.jpg` citado como exemplo na solicitação não estava na pasta fornecida; o fundo correspondente é o SVG utilizado.
 
-As fotos dos clientes foram extraídas dos recursos incorporados do PDF (`img_p0_48`, `img_p0_49`, `img_p0_50`). A textura veio de `img_p0_32`. Os recortes foram salvos em `assets/reference`; os assets fornecidos permaneceram intactos. Nenhum SVG fornecido foi convertido em PNG para a implementação.
+A textura veio do recurso incorporado `img_p0_32` do PDF. Os recortes foram salvos em `assets/reference`; os assets fornecidos permaneceram intactos. Nenhum SVG fornecido foi convertido em PNG para a implementação.
 
 ## Medidas e tipografia
 
@@ -43,4 +43,4 @@ O PDF tem apenas uma composição desktop. As versões responsivas preservam as 
 
 Não há SVGs de WhatsApp, telefone, localização, redes sociais ou setas na pasta fornecida. Esses controles usam um conjunto vetorial pequeno, incluído no HTML, com proporções ajustadas visualmente ao PDF. Aspas e fundos usam CSS; a textura é extraída do PDF.
 
-Os cinco indicadores de depoimentos foram preservados. Como há apenas três depoimentos na referência, as cinco posições reorganizam esses mesmos três registros; não foram criados novos depoimentos.
+Os depoimentos da referência (textos em latim, retratos e cidades) foram substituídos por avaliações reais do Google. Os indicadores do carrossel passaram a corresponder às páginas de depoimentos, em vez das cinco posições fixas da referência.
