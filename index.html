@@ -7,9 +7,8 @@
     <meta name="description" content="Há 41 anos, a Relíquia Interiores ajuda você a escolher móveis e decoração que combinam beleza, conforto e personalidade — para criar ambientes que fazem sentido para a sua vida.">
     <title>Relíquia Interiores — Escolhas que permanecem</title>
     <link rel="icon" href="assets/svg/iso.svg" type="image/svg+xml">
-    <link rel="preload" href="assets/fonts/fahkwang-400.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="assets/fonts/public-sans-400.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="assets/img/bg-hero.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/fonts/fahkwang-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <script>
       // Entrance animations hide content only while motion is allowed and script.js is running.
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -50,6 +49,13 @@
 
     <main id="conteudo">
       <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <picture>
+          <source media="(max-width: 699px)" type="image/avif" srcset="assets/img/optimized/hero-mobile-900.avif 900w, assets/img/optimized/hero-mobile-1255.avif 1255w" sizes="730px">
+          <source media="(max-width: 699px)" type="image/webp" srcset="assets/img/optimized/hero-mobile-900.webp 900w, assets/img/optimized/hero-mobile-1255.webp 1255w" sizes="730px">
+          <source type="image/avif" srcset="assets/img/optimized/hero-1680.avif 1680w, assets/img/optimized/hero-2160.avif 2160w, assets/img/optimized/hero-2880.avif 2880w" sizes="max(100vw, 1650px)">
+          <source type="image/webp" srcset="assets/img/optimized/hero-1680.webp 1680w, assets/img/optimized/hero-2160.webp 2160w, assets/img/optimized/hero-2880.webp 2880w" sizes="max(100vw, 1650px)">
+          <img class="hero-image" src="assets/img/bg-hero.jpg" alt="" width="2880" height="1394" fetchpriority="high">
+        </picture>
         <div class="container hero-inner">
           <h1 id="hero-title">A verdadeira <strong>relíquia</strong><br class="desktop-break"> está nas escolhas que<br class="desktop-break"> permanecem ao longo<br class="desktop-break"> da nossa história</h1>
           <div class="hero-copy">
@@ -73,7 +79,13 @@
         <img class="positioning-decoration" src="assets/svg/bg-posicionamento.svg" alt="" width="883" height="1087" loading="lazy" data-reveal="drift">
         <div class="container positioning-inner">
           <figure class="editorial-image positioning-image" data-reveal="image">
-            <div class="editorial-media"><img src="assets/img/img-posicionamento.jpg" alt="Sala com sofá claro, poltrona vinho e mesas de madeira em uma composição acolhedora" width="761" height="951" loading="lazy"></div>
+            <div class="editorial-media">
+              <picture>
+                <source type="image/avif" srcset="assets/img/optimized/posicionamento-640.avif 640w, assets/img/optimized/posicionamento-761.avif 761w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 507px">
+                <source type="image/webp" srcset="assets/img/optimized/posicionamento-640.webp 640w, assets/img/optimized/posicionamento-761.webp 761w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 507px">
+                <img src="assets/img/img-posicionamento.jpg" alt="Sala com sofá claro, poltrona vinho e mesas de madeira em uma composição acolhedora" width="761" height="951" loading="lazy">
+              </picture>
+            </div>
             <figcaption><strong>Escolhas pensadas</strong> para<br>durar mais do que a<br>primeira impressão.</figcaption>
           </figure>
           <div class="section-copy positioning-copy">
@@ -94,7 +106,13 @@
             <blockquote data-reveal="quote">Quando cada escolha encontra o seu lugar, o resultado deixa de parecer simplesmente decorado. <strong>Ele passa a parecer seu.</strong></blockquote>
           </div>
           <figure class="editorial-image choices-image" data-reveal="image">
-            <div class="editorial-media"><img src="assets/img/img-escolhas-que-transformam.jpg" alt="Cachorro descansando no sofá, ao lado de uma mesa de madeira com uma xícara" width="786" height="983" loading="lazy"></div>
+            <div class="editorial-media">
+              <picture>
+                <source type="image/avif" srcset="assets/img/optimized/escolhas-640.avif 640w, assets/img/optimized/escolhas-786.avif 786w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 524px">
+                <source type="image/webp" srcset="assets/img/optimized/escolhas-640.webp 640w, assets/img/optimized/escolhas-786.webp 786w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 524px">
+                <img src="assets/img/img-escolhas-que-transformam.jpg" alt="Cachorro descansando no sofá, ao lado de uma mesa de madeira com uma xícara" width="786" height="983" loading="lazy">
+              </picture>
+            </div>
             <figcaption><strong>Escolhas</strong> que fazem<br>sentido para a sua casa.</figcaption>
           </figure>
         </div>
@@ -155,11 +173,11 @@
           <p>No <strong class="accent">showroom da Relíquia</strong>, você encontra diferentes móveis, materiais e composições<br class="desktop-break"> para conhecer de perto e descobrir novas possibilidades para a sua casa.</p>
         </div>
         <div class="showroom-gallery" data-reveal="gallery" tabindex="0" role="region" aria-label="Galeria de ambientes do showroom. Use as setas do teclado ou deslize para ver as imagens.">
-          <button class="showroom-item" type="button" data-gallery-index="0" aria-label="Ampliar ambiente de estar"><img src="assets/img/img-showroom0.jpg" alt="Sala de estar com sofá claro, almofadas vinho e mesa orgânica de madeira" width="690" height="690" loading="lazy"></button>
-          <button class="showroom-item" type="button" data-gallery-index="1" aria-label="Ampliar sala de jantar"><img src="assets/img/img-showroom1.jpg" alt="Mesa de jantar de madeira e cadeiras estofadas junto à parede de pedra" width="690" height="690" loading="lazy"></button>
-          <button class="showroom-item" type="button" data-gallery-index="2" aria-label="Ampliar composição de sofás"><img src="assets/img/img-showroom2.jpg" alt="Sofás de textura clara e mesas de madeira em composição contemporânea" width="690" height="690" loading="lazy"></button>
-          <button class="showroom-item" type="button" data-gallery-index="3" aria-label="Ampliar poltrona"><img src="assets/img/img-showroom3.jpg" alt="Poltrona de madeira com estofado claro e linhas arredondadas" width="690" height="690" loading="lazy"></button>
-          <button class="showroom-item" type="button" data-gallery-index="4" aria-label="Ampliar quarto"><img src="assets/img/img-showroom4.jpg" alt="Cama estofada com roupa de cama clara e detalhes em vinho" width="690" height="690" loading="lazy"></button>
+          <button class="showroom-item" type="button" data-gallery-index="0" aria-label="Ampliar ambiente de estar"><picture><source type="image/avif" srcset="assets/img/optimized/showroom0-690.avif"><source type="image/webp" srcset="assets/img/optimized/showroom0-690.webp"><img src="assets/img/img-showroom0.jpg" alt="Sala de estar com sofá claro, almofadas vinho e mesa orgânica de madeira" width="690" height="690" loading="lazy"></picture></button>
+          <button class="showroom-item" type="button" data-gallery-index="1" aria-label="Ampliar sala de jantar"><picture><source type="image/avif" srcset="assets/img/optimized/showroom1-690.avif"><source type="image/webp" srcset="assets/img/optimized/showroom1-690.webp"><img src="assets/img/img-showroom1.jpg" alt="Mesa de jantar de madeira e cadeiras estofadas junto à parede de pedra" width="690" height="690" loading="lazy"></picture></button>
+          <button class="showroom-item" type="button" data-gallery-index="2" aria-label="Ampliar composição de sofás"><picture><source type="image/avif" srcset="assets/img/optimized/showroom2-690.avif"><source type="image/webp" srcset="assets/img/optimized/showroom2-690.webp"><img src="assets/img/img-showroom2.jpg" alt="Sofás de textura clara e mesas de madeira em composição contemporânea" width="690" height="690" loading="lazy"></picture></button>
+          <button class="showroom-item" type="button" data-gallery-index="3" aria-label="Ampliar poltrona"><picture><source type="image/avif" srcset="assets/img/optimized/showroom3-690.avif"><source type="image/webp" srcset="assets/img/optimized/showroom3-690.webp"><img src="assets/img/img-showroom3.jpg" alt="Poltrona de madeira com estofado claro e linhas arredondadas" width="690" height="690" loading="lazy"></picture></button>
+          <button class="showroom-item" type="button" data-gallery-index="4" aria-label="Ampliar quarto"><picture><source type="image/avif" srcset="assets/img/optimized/showroom4-690.avif"><source type="image/webp" srcset="assets/img/optimized/showroom4-690.webp"><img src="assets/img/img-showroom4.jpg" alt="Cama estofada com roupa de cama clara e detalhes em vinho" width="690" height="690" loading="lazy"></picture></button>
         </div>
       </section>
 
@@ -173,17 +191,17 @@
             <button class="carousel-arrow previous" type="button" aria-label="Depoimento anterior"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
             <div class="testimonial-track">
               <article class="testimonial-card">
-                <img class="customer-photo" src="assets/reference/cliente-lucas.png" alt="" width="50" height="50" loading="lazy">
+                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-lucas-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-lucas-120.webp"><img class="customer-photo" src="assets/reference/cliente-lucas.png" alt="" width="50" height="50" loading="lazy"></picture>
                 <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget.</blockquote>
                 <p class="customer-name">Lucas Fernandes</p><p class="customer-city">Caxias do Sul - RS</p>
               </article>
               <article class="testimonial-card">
-                <img class="customer-photo" src="assets/reference/cliente-maria.png" alt="" width="50" height="50" loading="lazy">
+                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-maria-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-maria-120.webp"><img class="customer-photo" src="assets/reference/cliente-maria.png" alt="" width="50" height="50" loading="lazy"></picture>
                 <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget tristique et morbi. Integer eget mauris gravida mauris magna nunc velit. Arcu massa eget tristique et morbi.</blockquote>
                 <p class="customer-name">Maria Silva</p><p class="customer-city">São Paulo - SP</p>
               </article>
               <article class="testimonial-card">
-                <img class="customer-photo" src="assets/reference/cliente-claudia.png" alt="" width="50" height="50" loading="lazy">
+                <picture><source type="image/avif" srcset="assets/img/optimized/cliente-claudia-120.avif"><source type="image/webp" srcset="assets/img/optimized/cliente-claudia-120.webp"><img class="customer-photo" src="assets/reference/cliente-claudia.png" alt="" width="50" height="50" loading="lazy"></picture>
                 <blockquote>Lorem ipsum dolor sit amet consectetur. Viverra adipiscing diam tristique integer. Turpis eget tristique viverra morbi id. Tristique.</blockquote>
                 <p class="customer-name">Cláudia Pereira</p><p class="customer-city">Itajaí - SC</p>
               </article>
@@ -213,7 +231,13 @@
             <blockquote data-reveal="quote">Mais de quatro décadas depois, seguimos fazendo o que sempre fizemos melhor: <strong>ajudar pessoas a transformar espaços em lugares que tenham a sua cara.</strong></blockquote>
           </div>
           <figure class="editorial-image history-image" data-reveal="image">
-            <div class="editorial-media"><img src="assets/img/img-nossa-historia.jpg" alt="Relíquia Interiores: sofá de couro, madeira e elementos naturais em uma sala acolhedora" width="786" height="1004" loading="lazy"></div>
+            <div class="editorial-media">
+              <picture>
+                <source type="image/avif" srcset="assets/img/optimized/nossa-historia-640.avif 640w, assets/img/optimized/nossa-historia-786.avif 786w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 524px">
+                <source type="image/webp" srcset="assets/img/optimized/nossa-historia-640.webp 640w, assets/img/optimized/nossa-historia-786.webp 786w" sizes="(max-width: 699px) calc(100vw - 64px), (max-width: 1023px) calc(50vw - 52px), 524px">
+                <img src="assets/img/img-nossa-historia.jpg" alt="Relíquia Interiores: sofá de couro, madeira e elementos naturais em uma sala acolhedora" width="786" height="1004" loading="lazy">
+              </picture>
+            </div>
             <figcaption>Mais de <strong>quatro décadas<br>de experiência</strong> que<br>fazem a diferença.</figcaption>
           </figure>
         </div>
@@ -261,7 +285,7 @@
     <dialog class="gallery-dialog" aria-label="Imagem ampliada do showroom">
       <button class="dialog-close" type="button" aria-label="Fechar imagem">×</button>
       <button class="dialog-arrow dialog-previous" type="button" aria-label="Imagem anterior"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
-      <img width="690" height="690" alt="">
+      <picture><img width="690" height="690" alt=""></picture>
       <button class="dialog-arrow dialog-next" type="button" aria-label="Próxima imagem"><svg aria-hidden="true"><use href="#icon-chevron"/></svg></button>
       <p class="gallery-counter" aria-live="polite"></p>
     </dialog>

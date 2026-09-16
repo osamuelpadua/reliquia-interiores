@@ -65,7 +65,8 @@ if (stampText) {
     if (!reducedMotion.matches) scheduleStampRotation();
   }, { passive: true });
   reducedMotion.addEventListener('change', scheduleStampRotation);
-  updateStampRotation();
+  // Reading the scroll position inside a frame avoids forcing layout while the page is still loading.
+  scheduleStampRotation();
 }
 
 // A separate background layer glides behind the banner content as it scrolls.
@@ -187,7 +188,7 @@ window.matchMedia('(min-width: 1024px)').addEventListener('change', event => { i
 // Once the header has scrolled out of view it becomes fixed: hidden while reading down,
 // shown again as soon as the visitor scrolls up. At the very top it returns to its place.
 const header = document.querySelector('.site-header');
-let lastScrollY = Math.max(0, window.scrollY);
+let lastScrollY = 0;
 let headerFrame = null;
 function updateHeader() {
   headerFrame = null;
@@ -214,7 +215,7 @@ function updateHeader() {
 window.addEventListener('scroll', () => {
   if (headerFrame === null) headerFrame = requestAnimationFrame(updateHeader);
 }, { passive: true });
-updateHeader();
+headerFrame = requestAnimationFrame(updateHeader);
 
 const gallery = document.querySelector('.showroom-gallery');
 const galleryItems = [...gallery.querySelectorAll('.showroom-item')];
@@ -223,7 +224,6 @@ function centerGallery() {
   if (galleryWasUsed) return;
   gallery.scrollLeft = mobileLayout.matches ? 0 : Math.max(0, (gallery.scrollWidth - gallery.clientWidth) / 2);
 }
-centerGallery();
 window.addEventListener('load', centerGallery, { once: true });
 gallery.addEventListener('pointerdown', () => { galleryWasUsed = true; }, { once: true });
 gallery.addEventListener('wheel', () => { galleryWasUsed = true; }, { once: true });
@@ -233,16 +233,21 @@ gallery.addEventListener('keydown', event => {
   galleryWasUsed = true;
   gallery.scrollBy({ left: (event.key === 'ArrowRight' ? 1 : -1) * (galleryItems[0].offsetWidth + 20), behavior: scrollBehavior() });
 });
+// The observer's first callback, right after the initial layout, also centres the gallery.
 new ResizeObserver(centerGallery).observe(gallery);
 
 const dialog = document.querySelector('.gallery-dialog');
-const dialogImage = dialog.querySelector('img');
+const dialogPicture = dialog.querySelector('picture');
+const dialogImage = dialogPicture.querySelector('img');
 let imageIndex = 0;
 let galleryTrigger;
 function showImage(index, direction = 0) {
   imageIndex = (index + galleryItems.length) % galleryItems.length;
-  const source = galleryItems[imageIndex].querySelector('img');
-  dialogImage.src = source.src;
+  // Copy the AVIF/WebP sources too, so the enlarged view gets the same optimised file as the gallery.
+  const picture = galleryItems[imageIndex].querySelector('picture');
+  const source = picture.querySelector('img');
+  dialogPicture.replaceChildren(...[...picture.querySelectorAll('source')].map(element => element.cloneNode()), dialogImage);
+  dialogImage.src = source.getAttribute('src');
   dialogImage.alt = source.alt;
   dialog.querySelector('.gallery-counter').textContent = `${imageIndex + 1} / ${galleryItems.length}`;
   if (direction && !reducedMotion.matches) {

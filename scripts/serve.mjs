@@ -6,7 +6,7 @@ import { extname, resolve, sep } from 'node:path';
 const root = resolve(process.argv.includes('--dist') ? 'dist' : '.');
 const portIndex = process.argv.indexOf('--port');
 const port = Number(process.env.PORT || (portIndex >= 0 ? process.argv[portIndex + 1] : 4173));
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.ico': 'image/x-icon' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.avif': 'image/avif', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.ico': 'image/x-icon' };
 
 createServer(async (request, response) => {
   try {

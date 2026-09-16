@@ -25,18 +25,25 @@ O build copia os arquivos de publicação para `dist/`. Essa pasta pode ser serv
 - `index.html`: conteúdo completo, seções semânticas e ícones utilitários em SVG.
 - `style.css`: tipografia local, medidas do desktop e adaptações para tablet/mobile.
 - `script.js`: menu, cabeçalho flutuante, animações de entrada, navegação da galeria, visualização ampliada, carrossel de depoimentos e contatos.
+- `site.config.js`: destino do WhatsApp e links externos.
+- `assets/img` e `assets/svg`: todos os 24 arquivos originais fornecidos, preservados.
+- `assets/img/optimized`: versões AVIF e WebP das fotos, usadas pelo site.
+- `assets/fonts`: Fahkwang e Public Sans em WOFF2 (subconjuntos latinos do Google Fonts), pesos 300–700, com suas licenças OFL.
+- `assets/reference`: fotos dos depoimentos e textura extraídas do próprio PDF.
+- `scripts/`: servidor local e build, usando somente módulos nativos do Node.js.
+- `docs/design-reference.md`: correspondência entre o PDF e os assets.
 
 ## Animações
 
 Os blocos marcados com `data-reveal` no HTML entram uma única vez ao aparecer na tela. O valor do atributo escolhe o efeito, definido na seção "Entrance motion" do `style.css` (`title`, `quote`, `image`, `stagger`, `gallery` etc.). Ao terminar, o atributo é removido e a página volta exatamente ao layout estático.
 
 O conteúdo só é ocultado para animar quando o visitante não pediu movimento reduzido e o `script.js` carregou. Se o JavaScript falhar, por exemplo por um erro de digitação em `site.config.js`, tudo aparece normalmente.
-- `site.config.js`: destino do WhatsApp e links externos.
-- `assets/img` e `assets/svg`: todos os 24 arquivos originais fornecidos, preservados.
-- `assets/fonts`: Fahkwang e Public Sans, pesos 300–700, com suas licenças OFL.
-- `assets/reference`: fotos dos depoimentos e textura extraídas do próprio PDF.
-- `scripts/`: servidor local e build, usando somente módulos nativos do Node.js.
-- `docs/design-reference.md`: correspondência entre o PDF e os assets.
+
+## Desempenho
+
+As fotos são servidas com `<picture>` (ou `image-set()` nos fundos em CSS): AVIF, com WebP e o arquivo original como alternativas. As variantes ficam em `assets/img/optimized` e foram geradas a partir dos originais com AVIF qualidade 75 e WebP qualidade 88. A foto do hero tem versões de 1680, 2160 e 2880 px para telas maiores e um recorte vertical para celular (até 699 px), que contém exatamente a área visível com `object-position: 61% center`. As fotos editoriais têm versões de 640 px e no tamanho original. Ao trocar uma foto, gere as variantes com as mesmas configurações e mantenha os nomes.
+
+A foto do hero não anima a opacidade: ela só faz o zoom, e um véu escuro por cima some. O Chrome só considera pintado um elemento que surge de opacidade 0 quando a animação termina, o que atrasaria a métrica de LCP.
 
 ## Contato pendente
 
