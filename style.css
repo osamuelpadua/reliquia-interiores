@@ -265,7 +265,7 @@ button { border: 0; }
 .footer-bottom p { font-size: 14px; line-height: 20px; letter-spacing: -.1px; }
 /* Developer credit: kept discreet and brought to full strength on hover or focus. */
 .footer-credit { flex: none; display: inline-flex; align-items: center; gap: 10px; min-height: 32px; opacity: .35; transition: opacity .5s var(--ease-out); }
-.footer-credit span { font-size: 10px; line-height: 12px; text-align: right; white-space: nowrap; }
+.footer-credit span { font-size: 9.3px; line-height: 12px; text-align: right; white-space: nowrap; }
 .footer-credit img { width: auto; height: 22px; }
 .footer-credit:hover, .footer-credit:focus-visible { opacity: 1; }
 
