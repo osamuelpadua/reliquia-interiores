@@ -44,7 +44,7 @@ Conforme combinado, `whatsappNumber` está vazio em `site.config.js`. Enquanto n
 
 O telefone fixo e o endereço do rodapé são os dados reais da loja e ficam no `index.html`: o telefone é um link `tel:` e não muda quando o WhatsApp é configurado. O endereço abre no Google Maps pelo `mapsUrl` de `site.config.js`.
 
-Facebook e X também aceitam URLs em `site.config.js`; seus destinos não constam no PDF. Os ícones sem destino configurado permanecem decorativos. O Instagram usa o perfil que aparece na referência.
+O Instagram usa o perfil que aparece na referência. A barra final do rodapé traz, no lugar dos ícones de redes sociais, o crédito "Design e Desenvolvimento" com a logo de Samuel Pádua (`assets/svg/logo-samuel.svg`), em opacidade reduzida.
 
 Os três depoimentos em latim, nomes, localidades, CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF. São conteúdos da referência, não depoimentos ou dados comerciais verificados. Substitua-os pelos dados reais quando disponíveis.
 
