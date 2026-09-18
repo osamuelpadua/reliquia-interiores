@@ -55,7 +55,7 @@ O Instagram usa o perfil que aparece na referência. A barra final do rodapé tr
 
 Os depoimentos são avaliações reais do Google Meu Negócio da loja, transcritas sem alterações. Foram selecionadas 12 avaliações positivas; ficaram de fora reclamações, comentários sobre preço, a avaliação de uma funcionária e uma pergunta. O botão "Ver todas as avaliações no Google" leva ao perfil completo. Para trocar ou incluir depoimentos, edite os `article.testimonial-card` no `index.html`: o carrossel calcula as páginas e os pontos sozinho.
 
-O CNPJ e a indicação de 41 anos foram mantidos como apresentados no PDF e não são dados verificados. Substitua-os pelos dados reais quando disponíveis.
+A indicação de 41 anos foi mantida como apresentada no PDF e não é um dado verificado. Substitua-a pelo dado real quando disponível.
 
 ## Verificação
 
